@@ -15,9 +15,8 @@ const lastGpsUpdateRef = useRef(0);
   try {
     const response = await fetch("https://resberripi-nodemailer.vercel.app/get_data");
     const res = await response.json();
-
-    setHeartRate(res.heartrate ?? "");
-    setSpo2(res.spo2 ?? res.spo2s ?? "");
+setHeartRate(parseInt(res.heartrate ?? 0));
+setSpo2(parseInt(res.spo2 ?? res.spo2s ?? 0));
     setLeds(res.led ?? [false, false, false, false]);
     setAlert(res.alerts ?? "");
 
