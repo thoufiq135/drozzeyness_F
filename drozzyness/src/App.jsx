@@ -37,7 +37,7 @@ function App() {
      
         <div className="w-full lg:w-[45vw] bg-gray-800 rounded-2xl shadow-lg flex flex-col items-center justify-center p-6">
           <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-sky-400 tracking-wide text-center">
-            Drozzyness Detection
+            Drowsiness Detection
           </h1>
 
           <div className="flex flex-wrap justify-center gap-6 mb-8">
