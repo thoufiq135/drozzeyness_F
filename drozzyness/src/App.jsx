@@ -7,7 +7,8 @@ function App() {
   const [leds, setLeds] = useState([false, false, false, false]);
   const [gps, setGps] = useState([0, 0]);
   const [alert, setAlert] = useState("");
-const [lastGpsUpdate, setLastGpsUpdate] = useState(0);
+const lastGpsUpdateRef = useRef(0);
+
 
  async function fetchData() {
   try {
@@ -19,12 +20,14 @@ const [lastGpsUpdate, setLastGpsUpdate] = useState(0);
     setLeds(res.led ?? [false, false, false, false]);
     setAlert(res.alerts ?? "");
 
-    const now = Date.now();
-   
-    if (now - lastGpsUpdate >= 10000) {
-      setGps([res.lat ?? 0, res.log ?? 0]);
-      setLastGpsUpdate(now);
-    }
+   const now = Date.now();
+
+
+if (now - lastGpsUpdateRef.current >= 10000) {
+  setGps([res.lat ?? 0, res.log ?? 0]);
+  lastGpsUpdateRef.current = now;
+}
+
 
   } catch (e) {
     console.error("Error fetching data:", e);
