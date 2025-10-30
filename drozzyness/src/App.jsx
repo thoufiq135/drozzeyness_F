@@ -7,23 +7,30 @@ function App() {
   const [leds, setLeds] = useState([false, false, false, false]);
   const [gps, setGps] = useState([0, 0]);
   const [alert, setAlert] = useState("");
+const [lastGpsUpdate, setLastGpsUpdate] = useState(0);
 
-  async function fetchData() {
-    console.log("Trying to fetch data...");
-    try {
-      const response = await fetch("https://resberripi-nodemailer.vercel.app/get_data");
-      const res = await response.json();
-      console.log(res);
+ async function fetchData() {
+  try {
+    const response = await fetch("https://resberripi-nodemailer.vercel.app/get_data");
+    const res = await response.json();
 
-      setHeartRate(res.heartrate ?? "");
-      setSpo2(res.spo2 ?? res.spo2s ?? "");
-      setLeds(res.led ?? [false, false, false, false]);
+    setHeartRate(res.heartrate ?? "");
+    setSpo2(res.spo2 ?? res.spo2s ?? "");
+    setLeds(res.led ?? [false, false, false, false]);
+    setAlert(res.alerts ?? "");
+
+    const now = Date.now();
+   
+    if (now - lastGpsUpdate >= 10000) {
       setGps([res.lat ?? 0, res.log ?? 0]);
-      setAlert(res.alerts ?? "");
-    } catch (e) {
-      console.error("Error fetching data:", e);
+      setLastGpsUpdate(now);
     }
+
+  } catch (e) {
+    console.error("Error fetching data:", e);
   }
+}
+
 
   useEffect(() => {
     fetchData();
