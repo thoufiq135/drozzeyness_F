@@ -54,73 +54,74 @@
     } = data;
 
     return (
-      <div className="flex flex-col lg:flex-row min-h-screen bg-gray-900 text-white p-4 gap-6">
+      // <div className="flex flex-col lg:flex-row min-h-screen bg-gray-900 text-white p-4 gap-6">
 
-        {/* LEFT PANEL */}
-        <div className="w-full lg:w-[45vw] bg-gray-800 rounded-2xl p-6 flex flex-col items-center">
+      //   {/* LEFT PANEL */}
+      //   <div className="w-full lg:w-[45vw] bg-gray-800 rounded-2xl p-6 flex flex-col items-center">
 
-          <h1 className="text-2xl font-bold text-sky-400 mb-6 text-center">
-            Drowsiness & Health Monitor
-          </h1>
+      //     <h1 className="text-2xl font-bold text-sky-400 mb-6 text-center">
+      //       Drowsiness & Health Monitor
+      //     </h1>
 
-          {/* CORE METRICS */}
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
+      //     {/* CORE METRICS */}
+      //     <div className="flex flex-wrap justify-center gap-4 mb-6">
             
-            <MetricCard title="IBI" value={ibi} unit="ms" color="text-purple-400" />
-          </div>
+      //       <MetricCard title="IBI" value={ibi} unit="ms" color="text-purple-400" />
+      //     </div>
 
-          {/* HRV */}
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <MetricCard title="RMSSD" value={rmssd} unit="ms" color="text-green-400" />
-            <MetricCard title="SDNN" value={sdnn} unit="ms" color="text-yellow-400" />
-          </div>
+      //     {/* HRV */}
+      //     <div className="flex flex-wrap justify-center gap-4 mb-6">
+      //       <MetricCard title="RMSSD" value={rmssd} unit="ms" color="text-green-400" />
+      //       <MetricCard title="SDNN" value={sdnn} unit="ms" color="text-yellow-400" />
+      //     </div>
 
-          {/* AUTONOMIC */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <MetricCard title="PNS" value={pns} unit="" color="text-emerald-400" />
-            <MetricCard title="SNS" value={sns} unit="" color="text-orange-400" />
-            <MetricCard title="Stress" value={stress} unit="%" color="text-rose-500" />
-          </div>
+      //     {/* AUTONOMIC */}
+      //     <div className="flex flex-wrap justify-center gap-4 mb-8">
+      //       <MetricCard title="PNS" value={pns} unit="" color="text-emerald-400" />
+      //       <MetricCard title="SNS" value={sns} unit="" color="text-orange-400" />
+      //       <MetricCard title="Stress" value={stress} unit="%" color="text-rose-500" />
+      //     </div>
 
-          {/* ALERT */}
-          <div className="mb-6 text-center">
-            {alerts !== "Safe driving" ? (
-              <p className="text-red-500 font-bold animate-pulse text-lg">
-                🚨 {alerts}
-              </p>
-            ) : (
-              <p className="text-green-400 font-semibold">
-                ✅ Safe Driving
-              </p>
-            )}
-          </div>
+      //     {/* ALERT */}
+      //     <div className="mb-6 text-center">
+      //       {alerts !== "Safe driving" ? (
+      //         <p className="text-red-500 font-bold animate-pulse text-lg">
+      //           🚨 {alerts}
+      //         </p>
+      //       ) : (
+      //         <p className="text-green-400 font-semibold">
+      //           ✅ Safe Driving
+      //         </p>
+      //       )}
+      //     </div>
 
-          {/* LED STATUS */}
-          <div className="flex gap-4">
-            {led.map((on, i) => (
-              <div
-                key={i}
-                className={`w-8 h-8 rounded-full transition-all ${
-                  on ? "bg-yellow-400 animate-pulse" : "bg-gray-700"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+      //     {/* LED STATUS */}
+      //     <div className="flex gap-4">
+      //       {led.map((on, i) => (
+      //         <div
+      //           key={i}
+      //           className={`w-8 h-8 rounded-full transition-all ${
+      //             on ? "bg-yellow-400 animate-pulse" : "bg-gray-700"
+      //           }`}
+      //         />
+      //       ))}
+      //     </div>
+      //   </div>
 
-        {/* MAP */}
-        <div className="w-full lg:w-[45vw] h-[60vh] lg:h-[100vh] rounded-2xl overflow-hidden border-4 border-gray-800">
-          <iframe
-            src={`https://maps.google.com/maps?q=${gps[0]},${gps[1]}&z=15&output=embed`}
-            className="w-full h-full"
-            loading="lazy"
-          />
-        </div>
-      </div>
-      // <>
-      // <h1>temporary out of service</h1><br/>
-      // <h1>Contact Owner</h1>
-      // </>
+      //   {/* MAP */}
+      //   <div className="w-full lg:w-[45vw] h-[60vh] lg:h-[100vh] rounded-2xl overflow-hidden border-4 border-gray-800">
+      //     <iframe
+      //       src={`https://maps.google.com/maps?q=${gps[0]},${gps[1]}&z=15&output=embed`}
+      //       className="w-full h-full"
+      //       loading="lazy"
+      //     />
+      //   </div>
+      // </div>
+      <>
+      <h1>temporary out of service</h1><br/>
+      <h1>Contact Rishi</h1><br/>
+      <h2>phone.no:9030822626</h2>
+      </>
     );
   }
 
